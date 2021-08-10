@@ -3,9 +3,6 @@ import Cart from './Cart'
 import Navbar from './Navbar'
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-
-
-
 class App extends React.Component {
   constructor() {
     super();
@@ -29,8 +26,7 @@ class App extends React.Component {
     })
   }
   addProduct = () => {
-    this.db
-      .collection("products")
+    this.db.collection("products")
       .add({
         img: "https://i.insider.com/604bd1bd10c8760018b9305d?width=1136&format=jpeg",
         price: 64000,
@@ -99,6 +95,7 @@ class App extends React.Component {
           onDeleteProduct={this.handelDeleteItem} />
         <div style={{ padding: 10, fontSize: 20 }}>Total: {this.getCartTotal()}</div>
         {loading && <h1>Loading ....</h1>}
+
         <button onClick={this.addProduct} style={{ padding: 20, fontSize: 12, backgroundColor: "#4267b2", borderRadius: 8 }}>
           Add I-Pad
         </button>
